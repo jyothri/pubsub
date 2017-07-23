@@ -2,11 +2,15 @@ package edu.jyo.test.logmein.pubsub;
 
 import org.junit.Test;
 
+import edu.jyo.test.logmein.pubsub.impl.SimpleNotifier;
+import edu.jyo.test.logmein.pubsub.impl.SimpleSubscriber;
+import edu.jyo.test.logmein.pubsub.impl.SlowSubscriber;
+
 public class BrokerTest {
 
-//    @Test
+    @Test
     public void simpleTest(){
-        Broker broker = new Broker();
+        Broker broker = new Broker(new SimpleNotifier());
         Subscriber s1 = new SimpleSubscriber("simple sub1");
         Subscriber s2 = new SimpleSubscriber("simple sub2");
         broker.register(s1);

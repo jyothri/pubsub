@@ -1,4 +1,4 @@
-package edu.jyo.test.logmein.pubsub;
+package edu.jyo.test.logmein.pubsub.util;
 
 public class Utility {
 

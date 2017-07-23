@@ -1,4 +1,6 @@
-package edu.jyo.test.logmein.pubsub;
+package edu.jyo.test.logmein.pubsub.impl;
+
+import edu.jyo.test.logmein.pubsub.Subscriber;
 
 /**
  * Provides a convenient no-op implementation which concrete subscribers can extend
