@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import edu.jyo.test.logmein.pubsub.impl.AsyncNotifier;
 import edu.jyo.test.logmein.pubsub.util.Utility;
 
-public class Broker {
+public class Topic {
     
     List<Subscriber> subscribers;
     private final MessageNotifier notifier;
@@ -20,7 +20,7 @@ public class Broker {
      * a slow processing subscriber does not delay notification
      * to other subscribers
      */
-    public Broker(){
+    public Topic(){
         subscribers = new ArrayList<Subscriber>();
         notifier = new AsyncNotifier();
     }
@@ -29,7 +29,7 @@ public class Broker {
      * Initializes a new Pub/Sub system
      * @param notifier The notifier which handles notification to subscribers
      */
-    public Broker(MessageNotifier notifier){
+    public Topic(MessageNotifier notifier){
         subscribers = new ArrayList<Subscriber>();
         this.notifier = notifier;
     }

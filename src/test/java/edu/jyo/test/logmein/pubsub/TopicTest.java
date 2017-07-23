@@ -6,28 +6,28 @@ import edu.jyo.test.logmein.pubsub.impl.SimpleNotifier;
 import edu.jyo.test.logmein.pubsub.impl.SimpleSubscriber;
 import edu.jyo.test.logmein.pubsub.impl.SlowSubscriber;
 
-public class BrokerTest {
+public class TopicTest {
 
     @Test
     public void simpleTest(){
-        Broker broker = new Broker(new SimpleNotifier());
+        Topic topic = new Topic(new SimpleNotifier());
         Subscriber s1 = new SimpleSubscriber("simple sub1");
         Subscriber s2 = new SimpleSubscriber("simple sub2");
-        broker.register(s1);
-        broker.register(s2);
-        broker.postMessage("First Simple Message");
-        broker.postMessage("Second Simple Message");
+        topic.register(s1);
+        topic.register(s2);
+        topic.postMessage("First Simple Message");
+        topic.postMessage("Second Simple Message");
     }
     
     @Test
     public void slowSubscriberTest(){
-        Broker broker = new Broker();
+        Topic topic = new Topic();
         Subscriber s1 = new SlowSubscriber("slow sub1",5000);
         Subscriber s2 = new SlowSubscriber("slow sub2",5000);
-        broker.register(s1);
-        broker.register(s2);
-        broker.postMessage("first Message");
-        broker.postMessage("Second Message");
-        broker.shutdown();
+        topic.register(s1);
+        topic.register(s2);
+        topic.postMessage("first Message");
+        topic.postMessage("Second Message");
+        topic.shutdown();
     }
 }

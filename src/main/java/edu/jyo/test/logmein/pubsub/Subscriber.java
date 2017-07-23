@@ -14,12 +14,12 @@ public interface Subscriber {
     public void onMessage(Object message);
     
     /**
-     * Callback that would be invoked after successful registration with the Broker
+     * Callback that would be invoked after successful registration with the Topic
      */
     public void onRegister();
     
     /**
-     * Callback that would be invoked when Broker is shutting down
+     * Callback that would be invoked when Topic is shutting down
      * Allows for doing any cleanup
      */
     public void onDeRegister();
