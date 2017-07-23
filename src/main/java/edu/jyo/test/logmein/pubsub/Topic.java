@@ -10,9 +10,10 @@ import edu.jyo.test.logmein.pubsub.util.Utility;
 
 public class Topic {
     
-    List<Subscriber> subscribers;
+    private List<Subscriber> subscribers;
     private final MessageNotifier notifier;
     private final Logger logger = Logger.getLogger(this.getClass().getName());
+    private final String name;
     
     /** 
      * Initializes a new Pub/Sub system
@@ -23,15 +24,23 @@ public class Topic {
     public Topic(){
         subscribers = new ArrayList<Subscriber>();
         notifier = new AsyncNotifier();
+        name = null;
+    }
+    
+    public Topic(String name){
+        subscribers = new ArrayList<Subscriber>();
+        notifier = new AsyncNotifier();
+        this.name = name;
     }
     
     /** 
      * Initializes a new Pub/Sub system
      * @param notifier The notifier which handles notification to subscribers
      */
-    public Topic(MessageNotifier notifier){
+    public Topic(String name,MessageNotifier notifier){
         subscribers = new ArrayList<Subscriber>();
         this.notifier = notifier;
+        this.name = name;
     }
     
     public void postMessage(Object o){
@@ -50,5 +59,10 @@ public class Topic {
     
     public void shutdown(){
         notifier.complete();
+    }
+    
+    @Override
+    public String toString(){
+        return "topic name:"+name+" notifier:"+notifier;
     }
 }

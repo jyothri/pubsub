@@ -10,7 +10,7 @@ public class TopicTest {
 
     @Test
     public void simpleTest(){
-        Topic topic = new Topic(new SimpleNotifier());
+        Topic topic = new Topic("Topic1",new SimpleNotifier());
         Subscriber s1 = new SimpleSubscriber("simple sub1");
         Subscriber s2 = new SimpleSubscriber("simple sub2");
         topic.register(s1);
